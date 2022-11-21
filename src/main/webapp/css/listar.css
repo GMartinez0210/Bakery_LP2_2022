@@ -1,0 +1,10 @@
+.listar-img-producto {
+    width: 4rem;
+    aspect-ratio: 1;
+    border-radius: 0.5rem;
+}
+
+.listar-img-accion {
+    width: 3rem;
+    aspect-ratio: 1;
+}

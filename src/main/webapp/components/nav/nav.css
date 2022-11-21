@@ -1,0 +1,67 @@
+.bg-khaki {
+    background-color: #CBAC8D;
+}
+
+.nav-brand-image {
+    width: 150px;
+    aspect-ratio: 1;
+}
+
+.nav-btn-toggle {
+    border-color: #FFF;
+}
+
+.nav-btn-toggle:focus {
+    outline: unset;
+    box-shadow: unset;
+}
+
+.nav-icon-toggle {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+:is(.navbar-nav) .nav-item > a {
+    color: #FFF;
+    font-size: 1.25rem;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+}
+
+.dropdown-menu {
+    border: 1px solid #CBAC8D;
+}
+
+:is(.dropdown-menu) li > .dropdown-item {
+    color: #CBAC8D;
+}
+
+.btn-form-search {
+    background-color: #FFF;
+    color: #CBAC8D;
+
+    font-size: 1.5rem;
+
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.btn-form-search:hover {
+    opacity: 1;
+    background-color: #FFF;
+    color: #CBAC8D;
+}
+
+.form-search {
+    background-color: #FFF;
+    border: 0;
+    border-color: unset;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.form-search:focus {
+    outline: unset;
+    box-shadow: unset;
+}

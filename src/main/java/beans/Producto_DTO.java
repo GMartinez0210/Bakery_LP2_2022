@@ -43,7 +43,6 @@ public class Producto_DTO {
 		this.codigoCategoria = codigoCategoria;
 	}
 
-
 	public int getStock() {
 		return stock;
 	}

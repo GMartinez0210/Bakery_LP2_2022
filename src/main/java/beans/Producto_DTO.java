@@ -4,7 +4,7 @@ import java.io.InputStream;
 
 public class Producto_DTO {
 	// Variables
-	private int codigo, stock;
+	private int codigo, codigoCategoria, stock;
 	private String nombre;
 	private double precio, estrellas;
 	private InputStream imagen;
@@ -15,9 +15,10 @@ public class Producto_DTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Producto_DTO(int codigo, int stock, double estrellas, InputStream imagen, String nombre, double precio) {
+	public Producto_DTO(int codigo, int codigoCategoria, int stock, double estrellas, InputStream imagen, String nombre, double precio) {
 		super();
 		this.codigo = codigo;
+		this.codigoCategoria = codigoCategoria;
 		this.stock = stock;
 		this.estrellas = estrellas;
 		this.imagen = imagen;
@@ -33,6 +34,15 @@ public class Producto_DTO {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+	
+	public int getCodigoCategoria() {
+		return codigoCategoria;
+	}
+
+	public void setCodigoCategoria(int codigoCategoria) {
+		this.codigoCategoria = codigoCategoria;
+	}
+
 
 	public int getStock() {
 		return stock;

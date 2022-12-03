@@ -8,11 +8,9 @@ public interface Empleado_DAO {
 	public int agregar(Empleado_DTO empleado);
 	
 	public ArrayList<Empleado_DTO> listar();
-	public Empleado_DTO buscar(int codigo);
+	public Empleado_DTO buscar(String dni);
 	
 	public int modificar(Empleado_DTO empleado);
 	
-	public int borrar(int codigo);
-	
-	//public ArrayList<Equipo_DTO> filtrar();
+	public int borrar(String dni);	
 }

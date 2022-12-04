@@ -1,27 +1,26 @@
 package beans;
 
-public class Empleado_DTO {
+import java.io.InputStream;
+
+public class Cliente_DTO {
 	// Variables
 	private String dni, email, clave, nombre, apellidos;
-	private int codigoCargo;
-	private double sueldo;
+	private InputStream avatar;
 	
 	// Constructors
-	public Empleado_DTO() {
+	public Cliente_DTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Empleado_DTO(String dni, String email, String clave, String nombre, String apellidos, int codigoCargo,
-			double sueldo) {
+	public Cliente_DTO(String dni, String email, String clave, String nombre, String apellidos, InputStream avatar) {
 		super();
 		this.dni = dni;
 		this.email = email;
 		this.clave = clave;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.codigoCargo = codigoCargo;
-		this.sueldo = sueldo;
+		this.avatar = avatar;
 	}
 
 	// Getters and Setters
@@ -65,19 +64,11 @@ public class Empleado_DTO {
 		this.apellidos = apellidos;
 	}
 
-	public int getCodigoCargo() {
-		return codigoCargo;
+	public InputStream getAvatar() {
+		return avatar;
 	}
 
-	public void setCodigoCargo(int codigoCargo) {
-		this.codigoCargo = codigoCargo;
-	}
-
-	public double getSueldo() {
-		return sueldo;
-	}
-
-	public void setSueldo(double sueldo) {
-		this.sueldo = sueldo;
+	public void setAvatar(InputStream avatar) {
+		this.avatar = avatar;
 	}
 }

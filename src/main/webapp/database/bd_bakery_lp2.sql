@@ -528,6 +528,34 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `USP_ModificarCliente` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `USP_ModificarCliente`(dniCliente char(8), 
+					codigoCargoCliente int, emailCliente varchar(60), claveCliente varchar(60), 
+                    nombreCliente varchar(60), apellidosCliente varchar(60), avatarCliente longblob)
+BEGIN
+	UPDATE clientes 
+    SET codigoCargo = codigoCargoCliente,
+		email = emailCliente,
+        clave = claveCliente,
+        nombre = nombreCliente,
+        apellidos = apellidosCliente,
+        avatar = avatarCliente
+	WHERE dni = dniCliente;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `USP_ModificarEmpleado` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -539,8 +567,8 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `USP_ModificarEmpleado`(dniEmpleado char(8), 
-					codigoCargoEmpleado int, emailEmpleado varchar(60), clave varchar(60), 
-                    nombre varchar(60), apellidos varchar(60), sueldo double)
+					codigoCargoEmpleado int, emailEmpleado varchar(60), claveEmpleado varchar(60), 
+                    nombreEmpleado varchar(60), apellidosEmpleado varchar(60), sueldoEmpleado double)
 BEGIN
 	UPDATE empleados 
     SET codigoCargo = codigoCargoEmpleado,
@@ -590,4 +618,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-03 23:15:13
+-- Dump completed on 2022-12-03 23:50:52

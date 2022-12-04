@@ -18,15 +18,15 @@ public class Empleado_Service {
 	public ArrayList<Empleado_DTO> listar() {
 		return empleado.listar();
 	}
-	public Empleado_DTO buscar(int codigo) {
-		return empleado.buscar(codigo);
+	public Empleado_DTO buscar(String dni) {
+		return empleado.buscar(dni);
 	}
 	
 	public int modificar(Empleado_DTO newEmpleado) {
 		return empleado.modificar(newEmpleado);
 	}
 	
-	public int borrar(int codigo) {
-		return empleado.borrar(codigo);
+	public int borrar(String dni) {
+		return empleado.borrar(dni);
 	}
 }

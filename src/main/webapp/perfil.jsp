@@ -16,7 +16,7 @@
 
   <main class="main">
     <div class="container">
-      <form class="perfil" method="post">
+      <form class="perfil" action="Cliente?tipo=editar" method="post">
         <div class="perfil__head">
           <img src="assets/utils/avatarp.png" alt="${user.nombre}">
 
@@ -29,13 +29,13 @@
         <div class="perfil__inputs">
           <div class="perfil__input-group">
             <div class="perfil__input">
-              <label class="label" for="name">Nombre:</label>
-              <input type="text" name="name" disabled id="name" value="${user.nombre}">
+              <label class="label" for="nombre">Nombre:</label>
+              <input type="text" name="nombre" disabled id="nombre" value="${user.nombre}">
             </div>
             
             <div class="perfil__input">
-              <label class="label" for="lastName">Apellido:</label>
-              <input type="text" name="lastName" disabled id="lastName" value="${user.apellidos}">
+              <label class="label" for="apellido">Apellido:</label>
+              <input type="text" name="apellido" disabled id="apellido" value="${user.apellidos}">
             </div>
 
             <div class="perfil__input">
@@ -46,8 +46,8 @@
 
           <div class="perfil__input-group">
             <div class="perfil__input">
-              <label class="label" for="password">Contraseña:</label>
-              <input type="password" name="password" disabled id="password" value="${user.clave}">
+              <label class="label" for="contrasenna">Contraseña:</label>
+              <input type="password" name="contrasenna" disabled id="contrasenna" value="${user.clave}">
               <svg class="perfil__show-pass" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="8" cy="8" r="7.5" fill="#7D2A0C" stroke="#fff"/>
               </svg>
@@ -73,7 +73,7 @@
 
 
   <section class="delete__wrapper">
-    <form  action="Cliente?tipo=eliminar" method="post" method="post" class="delete">
+    <form  action="Cliente?tipo=eliminar" method="post" class="delete">
       <h2>¿Quieres ${user.nombre} eliminar tu cuenta?</h2>
 
       <label class="delete__label" for="deleteAcount">

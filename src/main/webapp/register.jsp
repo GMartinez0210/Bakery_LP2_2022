@@ -41,7 +41,7 @@
         <div class="register__inputs">
           <label class="label" for="contra">
             Contrase�a:
-            <input type="password" name="contrasenna" id="contrasenna" placeholder="Introduce tu contrase�a">
+            <input type="password" name="contra" id="contra" placeholder="Introduce tu contrase�a">
           </label>
           
           <label class="label" for="repetir">

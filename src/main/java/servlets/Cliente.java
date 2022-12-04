@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.InputStream;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -55,19 +57,19 @@ public class Cliente extends HttpServlet {
 			editar(req, res);
 			break;
 		case "eliminar":
-			eliminar(req, res);
+			eliminarAuto(req, res);
 			break;
 		default:
 			break;
 		}
 	}
 
-	private void eliminar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	private void eliminarAuto(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String dni = req.getParameter("deleteAcount");
 		int result = clienteService.borrar(dni);
 		
-	System.out.println(dni);
-	System.out.println(result);
+		System.out.println(dni);
+		System.out.println(result);
 		// si no elimino
 		if(result == -1) {
 			String mensaje = "<script>alert(Ocurrio un error al momento de eliminar)</script>";
@@ -85,13 +87,32 @@ public class Cliente extends HttpServlet {
 		//req.getRequestDispatcher("login.jsp").forward(req, res);
 	}
 
-	private void editar(HttpServletRequest req, HttpServletResponse res) {
-		// TODO Auto-generated method stub
+	private void editar(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		String clave = req.getParameter("contrasenna");
+		String dni = req.getParameter("dni");
+		String email = req.getParameter("email");
+		String nombre = req.getParameter("nombre");
+		String apellido = req.getParameter("apellido");
 		
+		Cliente_DTO cliente= new Cliente_DTO();
+		cliente.setDni(dni);
+		cliente.setEmail(email);
+		cliente.setClave(clave);
+		cliente.setNombre(nombre);
+		cliente.setApellidos(apellido);
+		cliente.setAvatar(null);
+		
+		int actualizar = clienteService.modificar(cliente);
+		
+		HttpSession session = req.getSession();
+		Cliente_DTO c = clienteService.buscar(dni);
+		session.setAttribute("user", c);
+		res.sendRedirect("perfil.jsp");
+		System.out.println(actualizar);
 	}
 
 	private void registrarse(HttpServletRequest req, HttpServletResponse res) throws IOException {
-		String clave = req.getParameter("contrasenna");
+		String clave = req.getParameter("contra");
 		String dni = req.getParameter("dni");
 		String email = req.getParameter("email");
 		String nombre = req.getParameter("nombre");

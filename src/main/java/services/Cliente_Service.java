@@ -1,4 +1,4 @@
-package services;
+ package services;
 
 import java.util.ArrayList;
 
@@ -28,5 +28,9 @@ public class Cliente_Service {
 	
 	public int borrar(String dni) {
 		return cliente.borrar(dni);
+	}
+	
+	public Cliente_DTO verificar(String dni, String contra) {
+		return cliente.verificar(dni, contra);
 	}
 }

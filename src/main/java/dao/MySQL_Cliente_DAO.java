@@ -209,4 +209,49 @@ public class MySQL_Cliente_DAO implements Cliente_DAO {
 		return borrar;
 	}
 
+	@Override
+	public Cliente_DTO verificar(String dni, String contrasenna) {
+		Cliente_DTO cliente = new Cliente_DTO();
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet result = null;
+		
+		try {
+			connection = MySQLConexion.getConexion();
+			String sql = "call USP_VerificarCliente(?, ?);";
+			
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, dni);
+			preparedStatement.setString(2, contrasenna);
+			
+			result = preparedStatement.executeQuery();
+			
+			if(result.next()) {
+				cliente.setDni(result.getString("dni"));
+				cliente.setEmail(result.getString("email"));
+				cliente.setClave(result.getString("clave"));
+				cliente.setNombre(result.getString("nombre"));
+				cliente.setApellidos(result.getString("apellido"));
+				cliente.setAvatar(result.getBinaryStream("avatar"));
+			}
+			
+		}
+		catch (Exception e) {
+			System.out.println(">>> ERROR en el query: " + e.getMessage());
+		}
+		finally {
+			try {
+				if(preparedStatement != null ) preparedStatement.close();
+				if(connection != null) connection.close();
+				
+			} 
+			catch (SQLException e2) {
+				System.out.println(">>> ERROR en la BD: "+ e2.getMessage());
+			}
+		}
+		
+		return cliente;
+	}
+
 }

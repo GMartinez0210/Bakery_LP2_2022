@@ -71,4 +71,10 @@ public class Cliente_DTO {
 	public void setAvatar(InputStream avatar) {
 		this.avatar = avatar;
 	}
+
+	@Override
+	public String toString() {
+		return "Cliente_DTO [dni=" + dni + ", email=" + email + ", clave=" + clave + ", nombre=" + nombre
+				+ ", apellidos=" + apellidos + ", avatar=" + avatar + "]";
+	}
 }

@@ -80,4 +80,10 @@ public class Empleado_DTO {
 	public void setSueldo(double sueldo) {
 		this.sueldo = sueldo;
 	}
+
+	@Override
+	public String toString() {
+		return "Empleado_DTO [dni=" + dni + ", email=" + email + ", clave=" + clave + ", nombre=" + nombre
+				+ ", apellidos=" + apellidos + ", codigoCargo=" + codigoCargo + ", sueldo=" + sueldo + "]";
+	}
 }

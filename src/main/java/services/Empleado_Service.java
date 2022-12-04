@@ -29,4 +29,8 @@ public class Empleado_Service {
 	public int borrar(String dni) {
 		return empleado.borrar(dni);
 	}
+	
+	public Empleado_DTO verificar(String dni, String contr) {
+		return empleado.verificar(dni, contr);
+	}
 }

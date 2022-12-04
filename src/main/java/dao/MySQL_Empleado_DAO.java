@@ -66,7 +66,7 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 			
 			while(result.next()) {
 				empleado = new Empleado_DTO();
-				empleado.setCodigo(result.getInt(1));
+				empleado.setDni(result.getString(1));
 				empleado.setClave(result.getString(2));
 				empleado.setNombre(result.getString(3));
 				empleado.setApellidos(result.getString(4));
@@ -104,12 +104,12 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 			String sql = "call USP_BuscarEmpleado(?);";
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, codigo);
+			preparedStatement.setString(1, dni);
 			
 			result = preparedStatement.executeQuery();
 			
 			if(result.next()) {
-				empleado.setCodigo(result.getInt(1));
+				empleado.setDni(result.getString(1));
 				empleado.setClave(result.getString(2));
 				empleado.setNombre(result.getString(3));
 				empleado.setApellidos(result.getString(4));	
@@ -147,7 +147,7 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 			preparedStatement.setString(1, empleado.getClave());
 			preparedStatement.setString(2, empleado.getNombre());
 			preparedStatement.setString(3, empleado.getApellidos());
-			preparedStatement.setInt(4, empleado.getCodigo());
+			preparedStatement.setString(4, empleado.getDni());
 			
 			modificar = preparedStatement.executeUpdate();
 		} 
@@ -180,7 +180,7 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 			String sql = "call USP_BorrarEmpleado(?);";
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, codigo);
+			preparedStatement.setString(1, dni);
 
 			borrar = preparedStatement.executeUpdate();
 		} 
@@ -199,6 +199,50 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 		}
 		
 		return borrar;
+	}
+
+	@Override
+	public Empleado_DTO verificar(String dni, String contrasenna) {
+		Empleado_DTO empleado = new Empleado_DTO();
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet result = null;
+		
+		try {
+			connection = MySQLConexion.getConexion();
+			String sql = "call USP_VerificarEmpleado(?, ?);";
+			
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, dni);
+			preparedStatement.setString(2, contrasenna);
+			
+			result = preparedStatement.executeQuery();
+			
+			if(result.next()) {
+				empleado.setDni(result.getString(1));
+				empleado.setNombre(result.getString(2));
+				empleado.setApellidos(result.getString(3));
+				empleado.setNombre(result.getString(4));	
+				empleado.setEmail(result.getString(5));	
+			}
+			
+		}
+		catch (Exception e) {
+			System.out.println(">>> ERROR en el query: " + e.getMessage());
+		}
+		finally {
+			try {
+				if(preparedStatement != null ) preparedStatement.close();
+				if(connection != null) connection.close();
+				
+			} 
+			catch (SQLException e2) {
+				System.out.println(">>> ERROR en la BD: "+ e2.getMessage());
+			}
+		}
+		
+		return empleado;
 	}
 
 }

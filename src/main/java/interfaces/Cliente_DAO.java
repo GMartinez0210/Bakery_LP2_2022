@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import beans.Cliente_DTO;
 
 public interface Cliente_DAO {
-	public int agregar(Cliente_DTO cliente);
+	public int agregar(Cliente_DTO usuario);
 	
 	public ArrayList<Cliente_DTO> listar();
 	public Cliente_DTO buscar(String dni);
 	
-	public int modificar(Cliente_DTO cliente);
+	public int modificar(Cliente_DTO usuario);
 	
 	public int borrar(String dni);
+	
+	public Cliente_DTO verificar(String dni, String contrasenna);
 }

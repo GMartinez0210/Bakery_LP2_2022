@@ -13,4 +13,6 @@ public interface Empleado_DAO {
 	public int modificar(Empleado_DTO empleado);
 	
 	public int borrar(String dni);	
+	
+	public Empleado_DTO verificar(String dni, String contrasenna);
 }

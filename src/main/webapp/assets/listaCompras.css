@@ -1,0 +1,87 @@
+.main {
+  margin-block: 3rem;
+}
+
+.list h2 {
+  color: var(--primary);
+}
+
+.list > .table_container {
+  overflow-y: scroll;
+}
+
+.list table {
+  width: 820px;
+  text-align: left;
+  margin-block: 1.5rem;
+}
+
+.list table tr:first-child {
+  border-bottom: 2px solid var(--primary);
+}
+
+.list table th {
+  color: var(--primary);
+}
+
+.list table th,
+.list table td {
+  text-align: center;
+  width: calc(100% / 7);
+  padding: 0.4rem 1rem;
+}
+
+.list table tr th:not(:last-child),
+.list table tr td:not(:last-child) {
+  border-right: 1px solid var(--primary);
+}
+
+.list table td {
+  padding: 1.5rem 1rem;
+}
+
+.payment {
+  margin-top: 4rem;
+  padding: 0.8rem 2.2rem 1.8rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid var(--primary);
+  border-radius: 0.6rem;
+}
+
+.payment h2 {
+  text-align: center;
+  color: var(--primary);
+  margin: 1rem;
+}
+
+.payment button {
+  margin-top: 1rem;
+}
+
+
+@media (min-width: 768px) {
+  .main {
+    margin: initial;
+    padding: 4rem;
+    background: url("./utils/carrito_d_ola.svg") center bottom no-repeat;
+    background-size: 100%;
+  }
+
+  .main > .container {
+    min-height: calc(100vh - 92px);
+    display: flex;
+    gap: 5rem;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .list > .table_container {
+    overflow-y: initial;
+  }
+  .payment {
+    margin-top: 0;
+    padding: 2rem;
+    background: #fff;
+  }
+}

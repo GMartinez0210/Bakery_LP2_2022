@@ -1,0 +1,189 @@
+.perfil {
+  min-height: calc(100vh - 70px);
+  padding-block: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.perfil + .hero {
+  display: none;
+}
+
+.perfil__head {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.perfil__head h2 {
+  color: var(--primary);
+}
+
+.perfil__head > img {
+  border-radius: 200px;
+}
+
+.perfil__inputs {
+  margin-block: 3rem;
+}
+
+.perfil__input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.perfil__input-group:last-child {
+  margin-top: 1rem;
+}
+
+.perfil__input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.perfil__input > input {
+  width: calc(100% - 7rem);
+  background: #fff;
+  padding: 0.625rem;
+  border: 1px solid var(--primary);
+  border-radius: 0.375rem;
+  color: var(--primary);
+}
+
+.perfil__input > input:disabled {
+  border: 1px solid #fff;
+  border-bottom: 1px solid var(--primary);
+}
+
+.perfil__buttons {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#password, #repeat {
+  padding-right: 3em;
+}
+
+.perfil__show-pass,
+.perfil__show-rep {
+  position: absolute;
+  right: 1em;
+}
+
+@media (min-width: 768px) {
+  .main > .container {
+    position: relative;
+  } 
+  .perfil + .hero {
+    position: absolute;
+    display: block;
+    right: 0;
+    bottom: 8em;
+    z-index: -1;
+  }
+
+  .perfil {
+    min-height: calc(100vh - 91.5px);
+    padding-block: 4rem;
+    width: 28rem;
+  }
+
+  .perfil__head h2 {
+    font-size: 1.95rem;
+  }
+
+  .perfil__input > input {
+    width: calc(100% - 10rem);
+  }
+
+  .perfil__buttons {
+    position: absolute;
+    left: 50%;
+    bottom: 4rem;
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 1025px) {
+  .main {
+    background: url("./utils/perfil_olas.svg") no-repeat;
+    background-size: 100%;
+    background-position: center calc(100% + 20px);
+  }
+}
+
+
+
+
+
+.edit {
+  display: none;
+}
+
+
+
+
+
+
+.delete__wrapper {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #0000007e;
+}
+
+.delete {
+  width: 20rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 2rem 1.25rem;
+  border-radius: 0.375rem;
+}
+
+.delete__label {
+  color: var(--danger);
+  font-size: 0.875rem;
+}
+
+.delete__label input {
+  font-size: 0.875rem;
+  text-align: center;
+  background: var(--danger);
+  color: #fff;
+  border-radius: 0.375rem;
+  border: 1px solid var(--danger);
+  width: 100%;
+  padding: 0.375rem;
+  margin-top: 1.25rem;
+}
+
+.delete__label input::placeholder {
+  color: #ffffffad;
+}
+
+.delete__buttons {
+  width: 17.5rem;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3.75rem;
+}
+
+.delete h2 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--danger);
+  margin-bottom: 2rem;
+}
+

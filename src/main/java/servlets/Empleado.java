@@ -97,20 +97,20 @@ public class Empleado extends HttpServlet {
 	}
 	
 	private void buscar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		int codigo = Integer.parseInt(req.getParameter("codigo"));
+		String codigo = req.getParameter("codigo");
 		Empleado_DTO empleado = empleadoService.buscar(codigo);
 		req.setAttribute("empleado", empleado);
 		req.getRequestDispatcher("modificarEmpleado.jsp").forward(req, res);
 	}
 
 	private void modificar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		int codigo = Integer.parseInt(req.getParameter("codigo"));
+		String codigo = req.getParameter("codigo");
 		String clave = req.getParameter("clave");
 		String nombre = req.getParameter("nombre");
 		String apellidos = req.getParameter("apellidos");
 		
 		Empleado_DTO empleado = new Empleado_DTO();
-		empleado.setCodigo(codigo);
+		empleado.setDni(codigo);
 		empleado.setClave(clave);
 		empleado.setNombre(nombre);
 		empleado.setApellidos(apellidos);
@@ -121,7 +121,7 @@ public class Empleado extends HttpServlet {
 	}
 	
 	private void borrar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		int codigo = Integer.parseInt(req.getParameter("codigo"));
+		String codigo = req.getParameter("codigo");
 		
 		int borrar = empleadoService.borrar(codigo);
 		

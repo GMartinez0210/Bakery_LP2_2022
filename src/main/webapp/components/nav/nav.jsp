@@ -12,7 +12,7 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/views/producto/listar.jsp?tipo=listar" role="button"> Productos </a>
                 </li>
                 <li class="nav-item px-3">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/views/usuario/listar.jsp?tipo=listar" role="button"> Usuarios </a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/views/cliente/listar.jsp?tipo=listar" role="button"> Clientes </a>
                 </li>
                 <li class="nav-item px-3">
                     <a class="nav-link" href="${pageContext.request.contextPath}/views/empleado/listar.jsp?tipo=listar" role="button"> Empleados </a>

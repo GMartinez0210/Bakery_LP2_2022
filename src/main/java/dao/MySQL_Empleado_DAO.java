@@ -154,7 +154,7 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 		
 		try {
 			connection = MySQLConexion.getConexion();
-			String sql = "call USP_ModificarEmpleado(?,?,?,?);";
+			String sql = "call USP_ModificarEmpleado(?,?,?,?,?,?,?);";
 			
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, empleado.getDni());

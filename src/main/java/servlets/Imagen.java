@@ -44,12 +44,27 @@ public class Imagen extends HttpServlet {
 	}
 	
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		buscarCodigo(req, res);
+		String tipo = req.getParameter("tipo");
+		
+		if(tipo.equals("producto")) {
+			buscarImagenProducto(req, res);
+			return;
+		}
+		
+		if(tipo.equals("cliente")) {
+			buscarImagenCliente(req, res);
+			return;
+		}
 	}
 	
-	private void buscarCodigo(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	private void buscarImagenProducto(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		int codigo = Integer.parseInt(req.getParameter("codigo"));
-		mySqlImagenDao.buscar(codigo, res);
+		mySqlImagenDao.buscarImagenProducto(codigo, res);
+	}
+	
+	private void buscarImagenCliente(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String dni = req.getParameter("dni");
+		mySqlImagenDao.buscarImagenCliente(dni, res);
 	}
 	
 }

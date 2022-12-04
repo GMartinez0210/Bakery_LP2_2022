@@ -102,10 +102,7 @@ public class Producto extends HttpServlet {
 	}
 	
 	private void listar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		ArrayList<Producto_DTO> productos = productoService.listar();
-		
-		req.setAttribute("productos", productos);
-		req.getRequestDispatcher("listarProducto.jsp").forward(req, res);
+		res.sendRedirect("views/producto/listar.jsp?tipo=listar");
 	}
 	
 	private void buscar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

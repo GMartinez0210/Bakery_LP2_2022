@@ -25,8 +25,8 @@
 	  				<th scope="row"> <%= producto.getCodigo() %> </th>
 	  				<td> <%= producto.getNombreCategoria() %> </td>
 		      		<td>
-		      			<img src="${pageContext.request.contextPath}/Imagen?codigo=<%= producto.getCodigo() %>" 
-		      				class="listar-img-accion" alt="<%= producto.getNombre() %>" title="<%= producto.getNombre() %>">
+		      			<img src="${pageContext.request.contextPath}/Imagen?tipo=producto&&codigo=<%= producto.getCodigo() %>" 
+		      				class="listar-img" alt="<%= producto.getNombre() %>" title="<%= producto.getNombre() %>">
 		      		</td>
 		      		<td> <%= producto.getNombre() %> </td>
 		      		<td> <%= producto.getPrecio() %> </td>

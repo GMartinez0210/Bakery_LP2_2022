@@ -29,6 +29,16 @@ alphabetics.forEach(alphabetic => {
 	})
 })
 
+const dni = document.getElementById("dni")
+dni.addEventListener("keypress", (event) => {
+	const { target: { value } } = event
+	
+	if(value.length == 8) {
+		event.preventDefault()
+		return
+	}
+})
+
 const numbers = document.querySelectorAll(".validation-number")
 numbers.forEach(number => {
 	number.addEventListener("keypress", (event) => {		

@@ -70,7 +70,7 @@ public class MySQL_Cliente_DAO implements Cliente_DAO {
 				cliente.setEmail(result.getString("email"));
 				cliente.setClave(result.getString("clave"));
 				cliente.setNombre(result.getString("nombre"));
-				cliente.setApellidos(result.getString("apellido"));
+				cliente.setApellidos(result.getString("apellidos"));
 				cliente.setAvatar(result.getBinaryStream("avatar"));
 			
 				clientes.add(cliente);
@@ -116,7 +116,7 @@ public class MySQL_Cliente_DAO implements Cliente_DAO {
 				cliente.setEmail(result.getString("email"));
 				cliente.setClave(result.getString("clave"));
 				cliente.setNombre(result.getString("nombre"));
-				cliente.setApellidos(result.getString("apellido"));
+				cliente.setApellidos(result.getString("apellidos"));
 				cliente.setAvatar(result.getBinaryStream("avatar"));
 			}
 		}

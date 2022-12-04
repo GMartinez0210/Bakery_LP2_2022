@@ -1,7 +1,8 @@
-.listar-img-producto {
-    width: 4rem;
+.listar-img{
+    width: 150px;
     aspect-ratio: 1;
     border-radius: 0.5rem;
+    object-fit: contain;
 }
 
 .listar-img-accion {

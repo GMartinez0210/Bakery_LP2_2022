@@ -95,20 +95,20 @@ public class Empleado extends HttpServlet {
 		
 		int agregar = empleadoService.agregar(empleado);
 		
-		res.sendRedirect("Empleado?tipo=listar");
+		res.sendRedirect("views/empleado/listar.jsp?tipo=buscar");
 	}
 
 	private void listar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		ArrayList<Empleado_DTO> empleados = empleadoService.listar();
 		req.setAttribute("empleados", empleados);
-		req.getRequestDispatcher("listarEmpleado.jsp").forward(req, res);
+		req.getRequestDispatcher("views/empleado/listar.jsp?tipo=listar").forward(req, res);
 	}
 	
 	private void buscar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String dni = req.getParameter("dni");
 		Empleado_DTO empleado = empleadoService.buscar(dni);
 		req.setAttribute("empleado", empleado);
-		req.getRequestDispatcher("modificarEmpleado.jsp").forward(req, res);
+		req.getRequestDispatcher("views/empleado/listar.jsp?tipo=buscar").forward(req, res);
 	}
 
 	private void modificar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -131,7 +131,7 @@ public class Empleado extends HttpServlet {
 		
 		int modificar = empleadoService.modificar(empleado);
 		
-		res.sendRedirect("Empleado?tipo=listar");
+		res.sendRedirect("views/empleado/listar.jsp?tipo=listar");
 	}
 	
 	private void borrar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -139,6 +139,6 @@ public class Empleado extends HttpServlet {
 		
 		int borrar = empleadoService.borrar(dni);
 		
-		res.sendRedirect("Empleado?tipo=listar");		
+		res.sendRedirect("views/empleado/listar.jsp?tipo=buscar");		
 	}
 }

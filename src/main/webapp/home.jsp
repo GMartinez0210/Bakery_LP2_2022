@@ -29,13 +29,13 @@
           <span class="cart__items">0</span>
         </div>
 
-        <img class="header__avatar" src="assets/utils/avatarp.png" alt="${user.name}">
+        <img class="header__avatar" src="assets/utils/avatarp.png" alt="${user.nombre}">
         <nav class="nav">
           <ul class="nav__list">
             <li><button type="button" class="nav__close">
               <img src="assets/utils/cancel.svg" alt="daw">
             </button></li>
-            <li><a href="#" class="nav__item">Ver Perfil</a></li>
+            <li><a href="perfil.jsp" class="nav__item">Ver Perfil</a></li>
             <li><a href="Session?tipo=cerrar" class="nav__item nav__item--close">Cerrar Sesion</a></li>
           </ul>
         </nav>

@@ -85,12 +85,12 @@ public class Session extends HttpServlet {
 			if(!(cliente.getDni() == null)) {
 				url = "home.jsp";
 				mensaje = "<script>alert('Bienvenido '"+cliente.getNombre() +" "+cliente.getApellidos()+")</script>";
-				session.setAttribute("usuario", cliente);
+				session.setAttribute("user", cliente);
 				System.out.println(cliente.toString());
 			} else {
 				url = "loginEmpleado.jsp";
-				mensaje = "<script>alert('Bienvenido '"+cliente.getNombre() +" "+cliente.getApellidos()+")</script>";
-				session.setAttribute("usuario", empleado);
+				mensaje = "<script>alert(Bienvenido "+cliente.getNombre() +" "+cliente.getApellidos()+")</script>";
+				session.setAttribute("user", empleado);
 				System.out.println(empleado.toString());
 			}
 		} else {

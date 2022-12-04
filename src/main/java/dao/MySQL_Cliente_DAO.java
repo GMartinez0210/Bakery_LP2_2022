@@ -21,7 +21,7 @@ public class MySQL_Cliente_DAO implements Cliente_DAO {
 		
 		try {
 			connection = MySQLConexion.getConexion();
-			String sql = "call USP_AgregarCliente(?,?,?,?,?,?);";
+			String sql = "call USP_AgregarCliente(?,?,?,?,?);";
 			
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, cliente.getDni());
@@ -29,8 +29,8 @@ public class MySQL_Cliente_DAO implements Cliente_DAO {
 			preparedStatement.setString(3, cliente.getClave());
 			preparedStatement.setString(4, cliente.getNombre());
 			preparedStatement.setString(5, cliente.getApellidos());
-			preparedStatement.setBlob(6, cliente.getAvatar());
 			
+			agregar = preparedStatement.executeUpdate();
 		}
 		catch (Exception e) { 
 			System.out.println(">>> ERROR en el query: " + e.getMessage());

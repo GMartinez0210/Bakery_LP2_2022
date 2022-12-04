@@ -31,7 +31,7 @@
         
         <div class="login__group">
           <button class="button solid" type="submit">Iniciar sesión</button>
-          <a class="button link" href="">Crear una cuenta</a>
+          <a href="register.jsp" class="button link" href="">Crear una cuenta</a>
         </div>
       </form>
     </div>

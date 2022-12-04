@@ -15,48 +15,54 @@
     <div class="register">
       <img src="assets/utils/logo2.svg" class="register__img" alt="hero">
       
-      <form class="register__form" action="">
+      <form class="register__form" action="Cliente?tipo=registrarse" method="post" enctype="multipart/Register">
         <div class="register__inputs">
           <label class="label" for="nombre">
             Nombre:
-            <input type="text" name="nombre" id="nombre" placeholder="Introduce tu nombre">
+            <input type="text" name="nombre" required id="nombre" placeholder="Introduce tu nombre">
           </label>
 
           <label class="label" for="apellido">
             Apellido:
-            <input type="text" name="apellido" id="apellido" placeholder="Introduce tu apellido">
+            <input type="text" name="apellido" required id="apellido" placeholder="Introduce tu apellido">
           </label>
 
           <label class="label" for="email">
             Email:
-            <input type="text" name="email" id="email" placeholder="Introduce tu email">
+            <input type="text" name="email" required id="email" placeholder="Introduce tu email">
           </label>
 
           <label class="label" for="dni">
             DNI:
-            <input type="text" name="dni" id="dni" placeholder="Introduce tu DNI">
+            <input type="text" name="dni" required id="dni" placeholder="Introduce tu DNI">
           </label>
         </div>
 
         <div class="register__inputs">
           <label class="label" for="contra">
-            Contraseña:
-            <input type="password" name="contraseña" id="contraseña" placeholder="Introduce tu contraseña">
+            Contrase�a:
+            <input type="password" name="contrasenna" id="contrasenna" placeholder="Introduce tu contrase�a">
           </label>
           
           <label class="label" for="repetir">
-            Repetir contraseña:
+            Repetir contrase�a:
             <input type="password" name="repetir" id="repetir" placeholder="Repite la contraseña">
           </label>
         </div>
         
         <div class="register__group">
-          <button class="button solid" type="submit">Registrarse</button>
-          <a class="button link border__primary" href="login.html">Iniciar sesión</a>
+          <button class="button outline" disabled type="submit">Registrarse</button>
+          <a class="button link border__primary" href="login.jsp">Iniciar sesion</a>
         </div>
       </form>
     </div>
-
+	${aviso}
   </div>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
+<script src="./assets/register.js"></script>
 </body>
 </html>

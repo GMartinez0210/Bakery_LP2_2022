@@ -1,15 +1,17 @@
 package dao;
 
-import interfaces.Empleado_DAO;
-import interfaces.Producto_DAO;
-import interfaces.Usuario_DAO;
+import interfaces.*;
 
 public abstract class DAO_Factory {
 	public static final int MYSQL = 1;
 	
+	public abstract Codigo_Nombre_DAO getCargoEmpleado();
 	public abstract Empleado_DAO getEmpleado();
+	public abstract Cliente_DAO getCliente();
+	
+	public abstract Codigo_Nombre_DAO getCategoriaProducto();
 	public abstract Producto_DAO getProducto();
-	public abstract Usuario_DAO getUsuario();
+	
 	
 	public static DAO_Factory getDAO_Factory(int whichFactory) {
 		switch(whichFactory) {

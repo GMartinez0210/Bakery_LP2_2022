@@ -92,7 +92,7 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 	}
 
 	@Override
-	public Empleado_DTO buscar(int codigo) {		
+	public Empleado_DTO buscar(String dni) {		
 		Empleado_DTO empleado = new Empleado_DTO();
 		
 		Connection connection = null;
@@ -169,7 +169,7 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 	}
 
 	@Override
-	public int borrar(int codigo) {
+	public int borrar(String dni) {
 		int borrar = -1;
 		
 		Connection connection = null;

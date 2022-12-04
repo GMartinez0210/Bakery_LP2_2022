@@ -1,8 +1,6 @@
 package dao;
 
-import interfaces.Empleado_DAO;
-import interfaces.Producto_DAO;
-import interfaces.Usuario_DAO;
+import interfaces.*;
 
 public class MySQL_DAO_Factory extends DAO_Factory {
 
@@ -19,8 +17,20 @@ public class MySQL_DAO_Factory extends DAO_Factory {
 	}
 
 	@Override
-	public Usuario_DAO getUsuario() {
+	public Codigo_Nombre_DAO getCargoEmpleado() {
 		// TODO Auto-generated method stub
-		return new MySQL_Usuario_DAO();
+		return new MySQL_CargoEmpleado_DAO();
+	}
+
+	@Override
+	public Cliente_DAO getCliente() {
+		// TODO Auto-generated method stub
+		return new MySQL_Cliente_DAO();
+	}
+
+	@Override
+	public Codigo_Nombre_DAO getCategoriaProducto() {
+		// TODO Auto-generated method stub
+		return new MySQL_CategoriaProducto_DAO();
 	}
 }

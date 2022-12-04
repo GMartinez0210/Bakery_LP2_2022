@@ -40,7 +40,7 @@ public class MySQL_Imagen_DAO{
 			res.setContentType("image/*");
 			
 			if(result.next()) {
-				inputStream = result.getBinaryStream("imagenes");				
+				inputStream = result.getBinaryStream("imagen");				
 			}
 			
 			bufferedInputStream = new BufferedInputStream(inputStream);

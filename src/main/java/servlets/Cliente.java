@@ -53,7 +53,7 @@ public class Cliente extends HttpServlet {
 		
 		if(tipo.equals("buscar")) {
 			buscar(req, res);
-			return;
+		return;
 		}
 		
 		if(tipo.equals("modificar")) {
@@ -68,7 +68,7 @@ public class Cliente extends HttpServlet {
 	}
 	
 	private void agregar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-	
+		
 	}
 	
 	private void listar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-khaki">
+<nav class="navbar navbar-expand-lg py-0 bg-khaki">
     <div class="container">
         <a class="navbar-brand" href="#">
             <img class="nav-brand-image" src="${pageContext.request.contextPath}/images/bakery.jpg" alt="" title="">
@@ -7,47 +7,20 @@
             <span class="bi bi-list nav-icon-toggle"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown px-3">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Productos
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="Producto?tipo=listar">Listar Productos</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="agregarProducto.jsp">Agregar Producto</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown px-3">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Usuarios
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="Usuario?tipo=listar">Listar Usuarios</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="agregarUsuario.jsp">Agregar Usuario</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown px-3">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Empleados
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="Empleado?tipo=listar">Listar Empleados</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="agregarEmpleado.jsp">Agregar Empleado</a></li>
-                    </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item px-3">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/views/producto/listar.jsp?tipo=listar" role="button"> Productos </a>
                 </li>
                 <li class="nav-item px-3">
-                    <a class="nav-link" href="#">Reportes</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/views/usuario/listar.jsp?tipo=listar" role="button"> Usuarios </a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/views/empleado/listar.jsp?tipo=listar" role="button"> Empleados </a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/views/reporte/listar.jsp?tipo=listar">Reportes</a>
                 </li>              
             </ul>
-            <form class="d-flex" role="search">
-                <button class="btn btn-form-search" type="submit">
-                    <i class="bi bi-search"></i>
-                </button>
-                <input class="form-control form-search me-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
         </div>
     </div>
 </nav>

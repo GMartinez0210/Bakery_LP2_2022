@@ -70,12 +70,13 @@ public class MySQL_Producto_DAO implements Producto_DAO {
 			while(result.next()) {
 				producto = new Producto_DTO();
 				producto.setCodigo(result.getInt("codigo"));
-				producto.setNombreCategoria(result.getString("nombreCategoria"));
+				producto.setCodigoCategoria(result.getInt("codigoCategoria"));
 				producto.setImagen(result.getBinaryStream("imagen"));
 				producto.setNombre(result.getString("nombre"));
 				producto.setPrecio(result.getDouble("precio"));
 				producto.setStock(result.getInt("stock"));
 				producto.setEstrellas(result.getDouble("estrellas"));
+				producto.setNombreCategoria(result.getString("nombreCategoria"));
 				
 				productos.add(producto);
 			}
@@ -117,12 +118,13 @@ public class MySQL_Producto_DAO implements Producto_DAO {
 			if(result.next()) {
 				producto = new Producto_DTO();
 				producto.setCodigo(result.getInt("codigo"));
-				producto.setNombreCategoria(result.getString("nombreCategoria"));
+				producto.setCodigoCategoria(result.getInt("codigoCategoria"));
 				producto.setImagen(result.getBinaryStream("imagen"));
 				producto.setNombre(result.getString("nombre"));
 				producto.setPrecio(result.getDouble("precio"));
 				producto.setStock(result.getInt("stock"));
 				producto.setEstrellas(result.getDouble("estrellas"));
+				producto.setNombreCategoria(result.getString("nombreCategoria"));
 			}
 		} 
 		catch (Exception e) {

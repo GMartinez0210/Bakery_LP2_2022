@@ -21,12 +21,16 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 		
 		try {
 			connection = MySQLConexion.getConexion();
-			String sql = "call USP_AgregarEmpleado(?,?,?);";
+			String sql = "call USP_AgregarEmpleado(?,?,?,?,?,?);";
 			
 			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, empleado.getDni());
+			preparedStatement.setInt(2, empleado.getCodigoCargo());
+			preparedStatement.setString(3, empleado.getEmail());
 			preparedStatement.setString(1, empleado.getClave());
-			preparedStatement.setString(2, empleado.getNombre());
-			preparedStatement.setString(3, empleado.getApellidos());
+			preparedStatement.setString(1, empleado.getNombre());
+			preparedStatement.setString(1, empleado.getApellidos());
+			preparedStatement.setDouble(1, empleado.getSueldo());
 			
 			agregar = preparedStatement.executeUpdate();
 		} 
@@ -66,10 +70,14 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 			
 			while(result.next()) {
 				empleado = new Empleado_DTO();
-				empleado.setCodigo(result.getInt(1));
-				empleado.setClave(result.getString(2));
-				empleado.setNombre(result.getString(3));
-				empleado.setApellidos(result.getString(4));
+				empleado.setDni(result.getString("dni"));
+				empleado.setCodigoCargo(result.getInt("codigoCargo"));
+				empleado.setEmail(result.getString("email"));
+				empleado.setClave(result.getString("clave"));
+				empleado.setNombre(result.getString("nombre"));
+				empleado.setApellidos(result.getString("apellidos"));
+				empleado.setSueldo(result.getInt("sueldo"));
+				empleado.setNombreCargo(result.getString("nombreCargo"));
 				
 				empleados.add(empleado);
 			}
@@ -93,7 +101,7 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 
 	@Override
 	public Empleado_DTO buscar(String dni) {		
-		Empleado_DTO empleado = new Empleado_DTO();
+		Empleado_DTO empleado = null;
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -104,15 +112,20 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 			String sql = "call USP_BuscarEmpleado(?);";
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, codigo);
+			preparedStatement.setString(1, dni);
 			
 			result = preparedStatement.executeQuery();
 			
 			if(result.next()) {
-				empleado.setCodigo(result.getInt(1));
-				empleado.setClave(result.getString(2));
-				empleado.setNombre(result.getString(3));
-				empleado.setApellidos(result.getString(4));	
+				empleado = new Empleado_DTO();
+				empleado.setDni(result.getString("dni"));
+				empleado.setCodigoCargo(result.getInt("codigoCargo"));
+				empleado.setEmail(result.getString("email"));
+				empleado.setClave(result.getString("clave"));
+				empleado.setNombre(result.getString("nombre"));
+				empleado.setApellidos(result.getString("apellidos"));
+				empleado.setSueldo(result.getInt("sueldo"));
+				empleado.setNombreCargo(result.getString("nombreCargo"));
 			}
 		} 
 		catch (Exception e) {
@@ -125,7 +138,7 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 				
 			} 
 			catch (SQLException e2) {
-				System.out.println(">>>ERROR en la BD: "+ e2.getMessage());
+				System.out.println(">>> ERROR en la BD: "+ e2.getMessage());
 			}
 		}
 		
@@ -144,10 +157,13 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 			String sql = "call USP_ModificarEmpleado(?,?,?,?);";
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, empleado.getClave());
-			preparedStatement.setString(2, empleado.getNombre());
-			preparedStatement.setString(3, empleado.getApellidos());
-			preparedStatement.setInt(4, empleado.getCodigo());
+			preparedStatement.setString(1, empleado.getDni());
+			preparedStatement.setInt(2, empleado.getCodigoCargo());
+			preparedStatement.setString(3, empleado.getEmail());
+			preparedStatement.setString(4, empleado.getClave());
+			preparedStatement.setString(5, empleado.getNombre());
+			preparedStatement.setString(6, empleado.getApellidos());
+			preparedStatement.setDouble(7, empleado.getSueldo());
 			
 			modificar = preparedStatement.executeUpdate();
 		} 
@@ -180,7 +196,7 @@ public class MySQL_Empleado_DAO implements Empleado_DAO {
 			String sql = "call USP_BorrarEmpleado(?);";
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, codigo);
+			preparedStatement.setString(1, dni);
 
 			borrar = preparedStatement.executeUpdate();
 		} 

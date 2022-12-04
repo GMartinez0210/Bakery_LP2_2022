@@ -21,14 +21,15 @@ public class MySQL_Producto_DAO implements Producto_DAO {
 		
 		try {
 			connection = MySQLConexion.getConexion();
-			String sql = "call USP_AgregarProducto(?,?,?,?,?);";
+			String sql = "call USP_AgregarProducto(?,?,?,?,?,?);";
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setBlob(1, producto.getImagen());
-			preparedStatement.setString(2, producto.getNombre());
-			preparedStatement.setDouble(3, producto.getPrecio());
-			preparedStatement.setInt(4, producto.getStock());
-			preparedStatement.setDouble(5, producto.getEstrellas());
+			preparedStatement.setInt(1, producto.getCodigoCategoria());
+			preparedStatement.setBlob(2, producto.getImagen());
+			preparedStatement.setString(3, producto.getNombre());
+			preparedStatement.setDouble(4, producto.getPrecio());
+			preparedStatement.setInt(5, producto.getStock());
+			preparedStatement.setDouble(6, producto.getEstrellas());
 			
 			agregar = preparedStatement.executeUpdate();
 		} 
@@ -68,12 +69,13 @@ public class MySQL_Producto_DAO implements Producto_DAO {
 			
 			while(result.next()) {
 				producto = new Producto_DTO();
-				producto.setCodigo(result.getInt(1));
-				producto.setImagen(result.getBinaryStream(2));
-				producto.setNombre(result.getString(3));
-				producto.setPrecio(result.getDouble(4));
-				producto.setStock(result.getInt(5));
-				producto.setEstrellas(result.getDouble(6));
+				producto.setCodigo(result.getInt("codigo"));
+				producto.setNombreCategoria(result.getString("nombreCategoria"));
+				producto.setImagen(result.getBinaryStream("imagen"));
+				producto.setNombre(result.getString("nombre"));
+				producto.setPrecio(result.getDouble("precio"));
+				producto.setStock(result.getInt("stock"));
+				producto.setEstrellas(result.getDouble("estrellas"));
 				
 				productos.add(producto);
 			}
@@ -114,12 +116,13 @@ public class MySQL_Producto_DAO implements Producto_DAO {
 			
 			if(result.next()) {
 				producto = new Producto_DTO();
-				producto.setCodigo(result.getInt(1));
-				producto.setImagen(result.getBinaryStream(2));
-				producto.setNombre(result.getString(3));
-				producto.setPrecio(result.getDouble(4));
-				producto.setStock(result.getInt(5));
-				producto.setEstrellas(result.getDouble(6));
+				producto.setCodigo(result.getInt("codigo"));
+				producto.setNombreCategoria(result.getString("nombreCategoria"));
+				producto.setImagen(result.getBinaryStream("imagen"));
+				producto.setNombre(result.getString("nombre"));
+				producto.setPrecio(result.getDouble("precio"));
+				producto.setStock(result.getInt("stock"));
+				producto.setEstrellas(result.getDouble("estrellas"));
 			}
 		} 
 		catch (Exception e) {
@@ -148,15 +151,16 @@ public class MySQL_Producto_DAO implements Producto_DAO {
 		
 		try {
 			connection = MySQLConexion.getConexion();
-			String sql = "call USP_ModificarProducto(?,?,?,?,?,?);";
+			String sql = "call USP_ModificarProducto(?,?,?,?,?,?,?);";
 			
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setBlob(1, producto.getImagen());
-			preparedStatement.setString(2, producto.getNombre());
-			preparedStatement.setDouble(3, producto.getPrecio());
-			preparedStatement.setInt(4, producto.getStock());
-			preparedStatement.setDouble(5, producto.getEstrellas());
-			preparedStatement.setInt(6, producto.getCodigo());
+			preparedStatement.setInt(1, producto.getCodigo());
+			preparedStatement.setInt(2, producto.getCodigoCategoria());
+			preparedStatement.setBlob(3, producto.getImagen());
+			preparedStatement.setString(4, producto.getNombre());
+			preparedStatement.setDouble(5, producto.getPrecio());
+			preparedStatement.setInt(6, producto.getStock());
+			preparedStatement.setDouble(7, producto.getEstrellas());
 			
 			modificar = preparedStatement.executeUpdate();
 		} 

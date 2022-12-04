@@ -2,7 +2,7 @@ package beans;
 
 public class Empleado_DTO {
 	// Variables
-	private String dni, email, clave, nombre, apellidos;
+	private String dni, email, clave, nombre, apellidos, nombreCargo;
 	private int codigoCargo;
 	private double sueldo;
 	
@@ -12,8 +12,8 @@ public class Empleado_DTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Empleado_DTO(String dni, String email, String clave, String nombre, String apellidos, int codigoCargo,
-			double sueldo) {
+	public Empleado_DTO(String dni, String email, String clave, String nombre, String nombreCargo,
+			String apellidos, int codigoCargo, double sueldo) {
 		super();
 		this.dni = dni;
 		this.email = email;
@@ -21,6 +21,7 @@ public class Empleado_DTO {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.codigoCargo = codigoCargo;
+		this.nombreCargo = nombreCargo;
 		this.sueldo = sueldo;
 	}
 
@@ -71,6 +72,14 @@ public class Empleado_DTO {
 
 	public void setCodigoCargo(int codigoCargo) {
 		this.codigoCargo = codigoCargo;
+	}
+	
+	public String getNombreCargo() {
+		return nombreCargo;
+	}
+
+	public void setNombreCargo(String nombreCargo) {
+		this.nombreCargo = nombreCargo;
 	}
 
 	public double getSueldo() {

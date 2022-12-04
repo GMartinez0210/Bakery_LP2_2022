@@ -95,7 +95,7 @@ public class MySQL_Cliente_DAO implements Cliente_DAO {
 
 	@Override
 	public Cliente_DTO buscar(String dni) {		
-		Cliente_DTO cliente = new Cliente_DTO();
+		Cliente_DTO cliente = null;
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -111,6 +111,7 @@ public class MySQL_Cliente_DAO implements Cliente_DAO {
 			result = preparedStatement.executeQuery();
 			
 			if(result.next()) {
+				cliente = new Cliente_DTO();
 				cliente.setDni(result.getString("dni"));
 				cliente.setEmail(result.getString("email"));
 				cliente.setClave(result.getString("clave"));

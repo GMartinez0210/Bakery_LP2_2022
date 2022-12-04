@@ -76,14 +76,22 @@ public class Empleado extends HttpServlet {
 	}
 
 	private void agregar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String dni = req.getParameter("dni");
+		int codigoCargo = Integer.parseInt(req.getParameter("codigoCargo"));
+		String email = req.getParameter("email");
 		String clave = req.getParameter("clave");
 		String nombre = req.getParameter("nombre");
 		String apellidos = req.getParameter("apellidos");
+		double sueldo = Double.parseDouble(req.getParameter("sueldo"));
 		
 		Empleado_DTO empleado = new Empleado_DTO();
+		empleado.setDni(dni);
+		empleado.setCodigoCargo(codigoCargo);
+		empleado.setEmail(email);
 		empleado.setClave(clave);
 		empleado.setNombre(nombre);
 		empleado.setApellidos(apellidos);
+		empleado.setSueldo(sueldo);
 		
 		int agregar = empleadoService.agregar(empleado);
 		
@@ -97,23 +105,29 @@ public class Empleado extends HttpServlet {
 	}
 	
 	private void buscar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		int codigo = Integer.parseInt(req.getParameter("codigo"));
-		Empleado_DTO empleado = empleadoService.buscar(codigo);
+		String dni = req.getParameter("dni");
+		Empleado_DTO empleado = empleadoService.buscar(dni);
 		req.setAttribute("empleado", empleado);
 		req.getRequestDispatcher("modificarEmpleado.jsp").forward(req, res);
 	}
 
 	private void modificar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		int codigo = Integer.parseInt(req.getParameter("codigo"));
+		String dni = req.getParameter("dni");
+		int codigoCargo = Integer.parseInt(req.getParameter("codigoCargo"));
+		String email = req.getParameter("email");
 		String clave = req.getParameter("clave");
 		String nombre = req.getParameter("nombre");
 		String apellidos = req.getParameter("apellidos");
+		double sueldo = Double.parseDouble(req.getParameter("sueldo"));
 		
 		Empleado_DTO empleado = new Empleado_DTO();
-		empleado.setCodigo(codigo);
+		empleado.setDni(dni);
+		empleado.setCodigoCargo(codigoCargo);
+		empleado.setEmail(email);
 		empleado.setClave(clave);
 		empleado.setNombre(nombre);
 		empleado.setApellidos(apellidos);
+		empleado.setSueldo(sueldo);
 		
 		int modificar = empleadoService.modificar(empleado);
 		
@@ -121,9 +135,9 @@ public class Empleado extends HttpServlet {
 	}
 	
 	private void borrar(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		int codigo = Integer.parseInt(req.getParameter("codigo"));
+		String dni = req.getParameter("dni");
 		
-		int borrar = empleadoService.borrar(codigo);
+		int borrar = empleadoService.borrar(dni);
 		
 		res.sendRedirect("Empleado?tipo=listar");		
 	}
